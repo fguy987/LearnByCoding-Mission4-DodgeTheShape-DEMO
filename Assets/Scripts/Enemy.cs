@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     private Collider2D coll;
-    private Player player; 
+    protected Player player; 
 
     //ENCAPSULATION
     protected Vector2 destination;

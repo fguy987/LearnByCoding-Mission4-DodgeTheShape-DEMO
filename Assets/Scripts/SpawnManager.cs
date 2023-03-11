@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy_Prefab;
+    [SerializeField] private GameObject[] enemy_Prefabs;
     private float horLimit,vertLimit;
     
     
@@ -56,9 +56,11 @@ public class SpawnManager : MonoBehaviour
                     Debug.Log("Unknown spawn side!");
                     break;
             }
+            //Choose EnemyType
+            randInt = UnityEngine.Random.Range(0, enemy_Prefabs.Length);   //generate number from 0-3
 
             //Wrapper for Instantiating and setting enemy 
-            clone = Instantiate(enemy_Prefab, spawnPos, Quaternion.identity);
+            clone = Instantiate(enemy_Prefabs[randInt], spawnPos, Quaternion.identity);
             clone.GetComponent<Enemy>().SetDestination(spawnSide, spawnPos);
 
             yield return new WaitForSeconds(5f);
