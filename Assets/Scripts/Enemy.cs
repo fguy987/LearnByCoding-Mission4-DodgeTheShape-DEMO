@@ -6,16 +6,18 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     private Collider2D coll;
+    private Player player; 
 
     //ENCAPSULATION
     protected Vector2 destination;
-    private float horDest = 12f;
+    private float horDest = 12f; //is set by a public method after basic checks
     private float vertDest = 7f;
-    protected float damage = 0f; //is set by child classes 
+    protected int damage = 0; //is set by child classes 
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         coll = GetComponent<Collider2D>();
     }
 
@@ -61,10 +63,11 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+
     //ABSTRACTION
     private void DamagePlayer()
     {
-        Debug.Log($"Deal {damage} to player");
+        player.TakeDamage(damage);
 
     }
 }

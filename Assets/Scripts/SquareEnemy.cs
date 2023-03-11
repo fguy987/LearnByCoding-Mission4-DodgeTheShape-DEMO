@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//INHERITANCE
 public class SquareEnemy : Enemy
 {
 
@@ -12,7 +14,7 @@ public class SquareEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        damage = 1f; 
+        damage = 1; 
     }
 
     //POLYMORPHISM
