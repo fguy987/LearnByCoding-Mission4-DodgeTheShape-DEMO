@@ -14,6 +14,7 @@ public class CircleEnemy : Enemy
         base.Start();
         playerTr = player.GetComponent<Transform>();
         StartCoroutine(DeathTimer());
+        damage = 1;
     }
 
     private IEnumerator DeathTimer()

@@ -6,7 +6,9 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemy_Prefabs;
-    private float horLimit,vertLimit;
+    private float horLimit  = 9.5f;
+    private float vertLimit = 5.5f;
+    private float spawnCooldown;
     
     
     private Vector3 spawnPos;
@@ -15,9 +17,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        horLimit = 9.5f;
-        vertLimit = 5.5f;
-
+        spawnCooldown = 3f;
         StartCoroutine(SpawnCont());
     }
 
@@ -63,7 +63,7 @@ public class SpawnManager : MonoBehaviour
             clone = Instantiate(enemy_Prefabs[randInt], spawnPos, Quaternion.identity);
             clone.GetComponent<Enemy>().SetDestination(spawnSide, spawnPos);
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(spawnCooldown);
         }
     }
 }

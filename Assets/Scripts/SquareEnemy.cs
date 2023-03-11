@@ -15,12 +15,12 @@ public class SquareEnemy : Enemy
     {
         base.Start();
         damage = 1; 
+        wayToDest = new Vector2(destination.x - transform.position.x, destination.y - transform.position.y);
     }
 
     //POLYMORPHISM
     protected override void MovePattern()
     {
-        wayToDest = new Vector2(destination.x - transform.position.x, destination.y - transform.position.y);
         transform.Translate(speed * Time.deltaTime * wayToDest.normalized);
     }
 }
