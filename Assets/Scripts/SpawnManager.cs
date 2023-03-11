@@ -43,12 +43,12 @@ public class SpawnManager : MonoBehaviour
                     break;
                 case 2:
                     spawnSide=SpawnSide.Left;
-                    randFloat = UnityEngine.Random.Range(-(vertLimit-1), vertLimit-1);
+                    randFloat = UnityEngine.Random.Range(-(vertLimit-1), vertLimit-2);
                     spawnPos = new Vector3(-horLimit, randFloat, 0f);
                     break;
                 case 3: 
                     spawnSide=SpawnSide.Right;
-                    randFloat = UnityEngine.Random.Range(-(vertLimit-1), vertLimit-1);
+                    randFloat = UnityEngine.Random.Range(-(vertLimit-1), vertLimit-2);
                     spawnPos = new Vector3(horLimit, randFloat, 0f);
                     break;
                 default:

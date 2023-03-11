@@ -68,6 +68,6 @@ public abstract class Enemy : MonoBehaviour
     private void DamagePlayer()
     {
         player.TakeDamage(damage);
-
+        Destroy(gameObject);
     }
 }

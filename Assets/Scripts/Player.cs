@@ -7,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public class Player : MonoBehaviour
 {
+    [SerializeField] //set in editor
+    private GameObject hpUIHandler_Obj;
+    private HpContainerUIHandler hpUIHandler;
+    
     private int maxHp = 5;
     private int hp;
     
@@ -14,11 +18,13 @@ public class Player : MonoBehaviour
     private void Start()
     {
         hp = maxHp;
+        hpUIHandler = hpUIHandler_Obj.GetComponent<HpContainerUIHandler>();
     }
 
     public void TakeDamage(int dmgTaken)
     {
-        if(hp- dmgTaken <=0)//lethal hit
+        hpUIHandler.DeactivateHeart();
+        if (hp- dmgTaken <=0)//lethal hit
         {
             Debug.Log($"Player Dead");
         }

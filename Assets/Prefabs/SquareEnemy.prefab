@@ -57,7 +57,7 @@ MonoBehaviour:
     _fillRotation: 0
     _fillScale: {x: 1, y: 1}
     _fillTexture: {fileID: 0}
-    _fillType: 2
+    _fillType: 7
     _gradientAxis: 0
     _gradientStart: 0
     _gradientType: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
     _invertArc: 0
     _lineSize: 0.1
     _obsoleteNumSides: -1
-    _outlineColor: {r: 1, g: 1, b: 1, a: 1}
+    _outlineColor: {r: 0, g: 0, b: 0, a: 1}
     _outlineSize: 0
     _pathSegments:
     - p0: {x: -0.3, y: 0, z: 0}
@@ -133,9 +133,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c3c34e396a46f4439925b24e67779a5d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8679245, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
