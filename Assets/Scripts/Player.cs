@@ -9,7 +9,11 @@ public class Player : MonoBehaviour
 {
     [SerializeField] //set in editor
     private GameObject hpUIHandler_Obj;
+    [SerializeField] //set in editor
+    private GameObject menu_Obj;
+
     private HpContainerUIHandler hpUIHandler;
+    private GameMenuUIHandler gameMenuUIHandler;
     
     private int maxHp = 5;
     private int hp;
@@ -18,21 +22,33 @@ public class Player : MonoBehaviour
     private void Start()
     {
         hp = maxHp;
-        hpUIHandler = hpUIHandler_Obj.GetComponent<HpContainerUIHandler>();
+        hpUIHandler       = hpUIHandler_Obj.GetComponent<HpContainerUIHandler>();
+        gameMenuUIHandler = menu_Obj.GetComponent<GameMenuUIHandler>();
     }
 
     public void TakeDamage(int dmgTaken)
     {
-        hpUIHandler.DeactivateHeart();
+        //Debug.Log($"curr hp {hp} dmg to take: {dmgTaken}");
+
+        for (int i = 0; i < dmgTaken; i++)
+        {
+            hpUIHandler.DeactivateHeart();
+        }
+
         if (hp- dmgTaken <=0)//lethal hit
         {
-            Debug.Log($"Player Dead");
+            GameOver();
         }
         else
         {
             hp -= dmgTaken;
         }
-        Debug.Log($"hp after hit {hp}");
+    }
+
+    private void GameOver()
+    {
+        menu_Obj.SetActive(true);
+        Time.timeScale = 0f;
     }
 
 }
