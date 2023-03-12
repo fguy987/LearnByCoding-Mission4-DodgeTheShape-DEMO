@@ -9,23 +9,32 @@ public class GameMenuUIHandler : MonoBehaviour
     
     private Button retryButton, returnButton;
     private AudioSource pressSound, gameMusic;
+    [SerializeField] //set in editor
+    private GameObject gameOver_Obj;
 
     private float gameMusicCurrentMax;
 
 
     private void Awake()
     {
+        Time.timeScale = 1f;
+
+        //audio
         pressSound = GetComponent<AudioSource>();
         AudioSource[] gameMusics = GetComponentsInParent<AudioSource>(); //There seems to be a bug where it also grabs own Audiosource along with parents' audioSource
         gameMusic = gameMusics[1];
         gameMusicCurrentMax = gameMusic.volume;
 
+        //Buttons
         Button[] buttons = GetComponentsInChildren<Button>();
         retryButton = buttons[0];
         returnButton = buttons[1];
 
         retryButton.onClick.AddListener(RestartGame);
         returnButton.onClick.AddListener(ReturnToMenu);
+
+        //
+        gameOver_Obj.SetActive(false);
     }
 
     private void Start()
@@ -57,5 +66,12 @@ public class GameMenuUIHandler : MonoBehaviour
     {
         gameMusic.volume = gameMusicCurrentMax;
         Time.timeScale = 1f;
+    }
+
+    public void GameOver()
+    {
+        Pause();
+        gameOver_Obj.SetActive(true);
+
     }
 }

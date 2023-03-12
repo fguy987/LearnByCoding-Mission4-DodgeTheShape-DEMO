@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
         if (hp- dmgTaken <=0)//lethal hit
         {
-            GameOver();
+            Dead();
         }
         else
         {
@@ -45,10 +45,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    private void Dead()
     {
         menu_Obj.SetActive(true);
-        Time.timeScale = 0f;
+        gameMenuUIHandler.GameOver();
     }
 
 }
