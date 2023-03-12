@@ -20,11 +20,12 @@ public class MainMenuUIHandler : MonoBehaviour
         startButton.onClick.AddListener(StartGame);
         exitButton.onClick.AddListener(ExitGame);
 
-    }
 
+    }
     private void StartGame()
     {
         SceneManager.LoadScene(1);
+
     }
 
     private void ExitGame()
