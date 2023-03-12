@@ -7,7 +7,7 @@ public class CircleEnemy : Enemy
 {
     private Transform playerTr;
     private Vector2 wayToDest;
-    private float speed = 4f;
+    private float speed = 3.5f;
 
     protected override void Start()
     {

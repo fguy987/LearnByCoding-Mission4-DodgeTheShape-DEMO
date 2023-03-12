@@ -9,10 +9,9 @@ using TMPro;
 public class MainMenuUIHandler : MonoBehaviour
 {
     private Button startButton, exitButton;
-
+    private AudioSource pressSound;
     private void Awake()
     {
-
         Button[] buttons = GetComponentsInChildren<Button>();
         startButton = buttons[0];
         exitButton = buttons[1];
@@ -20,10 +19,11 @@ public class MainMenuUIHandler : MonoBehaviour
         startButton.onClick.AddListener(StartGame);
         exitButton.onClick.AddListener(ExitGame);
 
-
+        pressSound = GetComponent<AudioSource>();
     }
     private void StartGame()
     {
+        pressSound.Play();
         SceneManager.LoadScene(1);
 
     }

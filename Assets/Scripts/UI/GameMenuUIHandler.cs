@@ -8,9 +8,12 @@ public class GameMenuUIHandler : MonoBehaviour
 {
     
     private Button retryButton, returnButton;
+    private AudioSource pressSound;
+
 
     private void Awake()
     {
+        pressSound = GetComponent<AudioSource>();
 
         Button[] buttons = GetComponentsInChildren<Button>();
         retryButton = buttons[0];
@@ -27,12 +30,14 @@ public class GameMenuUIHandler : MonoBehaviour
 
     private void RestartGame()
     {
+        pressSound.Play();
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
     }
 
     private void ReturnToMenu()
     {
+        pressSound.Play();
         SceneManager.LoadScene(0);
     }
 
