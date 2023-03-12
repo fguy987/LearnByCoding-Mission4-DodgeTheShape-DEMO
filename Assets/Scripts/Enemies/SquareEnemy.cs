@@ -15,7 +15,7 @@ public class SquareEnemy : Enemy
     {
         base.Start();
         damage = 1; 
-        wayToDest = new Vector2(destination.x - transform.position.x, destination.y - transform.position.y);
+        wayToDest = new Vector2(Destination.x - transform.position.x, Destination.y - transform.position.y);
     }
 
     //POLYMORPHISM

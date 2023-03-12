@@ -10,9 +10,19 @@ public abstract class Enemy : MonoBehaviour
     protected ScoreManager scoreManager;
 
     //ENCAPSULATION
-    protected Vector2 destination;
-    private float horDest = 12f; //is set by a public method after basic checks
-    private float vertDest = 7f;
+    private Vector2 destination;
+    public Vector2 Destination 
+    {
+        get { return destination; }
+
+        private set //private setting of the property is done by SetDestination method 
+        {
+            destination = value;
+        }
+        
+    }
+    private float horDest = 12f; 
+    private float vertDest = 7f; 
     protected int damage =  1; 
     protected int pointsWorth =1;
 
@@ -38,22 +48,21 @@ public abstract class Enemy : MonoBehaviour
         switch (side)
         {
             case SpawnSide.Left:
-                destination = new Vector2(horDest, spawnPoint.y);
+                Destination = new Vector2(horDest, spawnPoint.y);
                 break;
             case SpawnSide.Right:
-                destination = new Vector2(-horDest, spawnPoint.y); ;
+                Destination = new Vector2(-horDest, spawnPoint.y); ;
                 break;
             case SpawnSide.Up:
-                destination = new Vector2(spawnPoint.x, -vertDest);
+                Destination = new Vector2(spawnPoint.x, -vertDest);
                 break;
             case SpawnSide.Down:
-                destination = new Vector2(spawnPoint.x, vertDest);
+                Destination = new Vector2(spawnPoint.x, vertDest);
                 break;
             default:
                 Debug.Log("ERROR: Unknown side!");
                 break;
         }
-        //Debug.Log($"spawn point {spawnPoint} dest chosen{destination}");
     }
 
     
@@ -63,6 +72,7 @@ public abstract class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            //ABSTRACTION
             DamagePlayer();
         }
         

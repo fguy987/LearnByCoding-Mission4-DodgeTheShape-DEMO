@@ -22,7 +22,7 @@ public class TriangleEnemy : Enemy
 
     private IEnumerator switchVelocityAfterTimer()
     {
-        Vector2 wayToDestNorm = new Vector2(destination.x - transform.position.x, destination.y - transform.position.y);
+        Vector2 wayToDestNorm = new Vector2(Destination.x - transform.position.x, Destination.y - transform.position.y);
         float angle = 30f;
         while(true)
         {
