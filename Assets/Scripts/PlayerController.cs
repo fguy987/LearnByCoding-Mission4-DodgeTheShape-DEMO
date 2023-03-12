@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private GameObject gameMenu_Obj;
-    
+    private GameMenuUIHandler GameMenuUIHandler;
+
     private Rigidbody2D rb2d;
 
     private float horInput,vertInput,speed;
@@ -16,7 +17,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb2d=GetComponent<Rigidbody2D>();
+        GameMenuUIHandler = gameMenu_Obj.GetComponent<GameMenuUIHandler>();
+        rb2d =GetComponent<Rigidbody2D>();
         speed = 4f;
     }
 
@@ -28,22 +30,33 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isPaused) { Pause(); }
-            else { Resume(); }
+            if (!isPaused) 
+            {
+                OpenMenu();
+            }
+            else 
+            { 
+                CloseMenu(); 
+            }
+            isPaused = !isPaused;
         }
 
     }
-    private void Pause()
+
+
+    private void OpenMenu()
     {
         gameMenu_Obj.SetActive(true);
-        Time.timeScale = 0f;
+        GameMenuUIHandler.Pause();
+    }
+    private void CloseMenu()
+    {
+        GameMenuUIHandler.Resume();
+        gameMenu_Obj.SetActive(false);
     }
 
-    private void Resume()
-    {
-        gameMenu_Obj.SetActive(false);
-        Time.timeScale = 1f;
-    }
+    
+    
 
 
     private void FixedUpdate()
