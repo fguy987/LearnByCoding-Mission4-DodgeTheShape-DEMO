@@ -2,7 +2,7 @@
  
  This repository is dedicated to the Unity Junior Programmer Pathway's Final Project
 
- The implementation of the main pillars of OOP can be found on scripts: Enemy.cs  (abstract), SquareEnemy.cs
+ The implementation of the main pillars of OOP can be found on: Assets/Scripts/Enemies/Enemy.cs and SquareEnemy.cs
  
  Game Goal: DODGE THE SHAPES
  Best Moments: DODGING THE SHAPES
