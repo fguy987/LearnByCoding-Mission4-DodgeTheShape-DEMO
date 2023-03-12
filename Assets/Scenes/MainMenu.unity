@@ -529,8 +529,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 140
-  m_fontSizeBase: 140
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -937,8 +937,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.456177, y: 46.99997}
-  m_SizeDelta: {x: 333.6348, y: 101.7296}
+  m_AnchoredPosition: {x: 8.456177, y: 75}
+  m_SizeDelta: {x: 333.6348, y: 118.5412}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856999226
 MonoBehaviour:
@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Move:  ArrowKeys\nPause: ESC\n \n"
+  m_text: "Move:  ArrowKeys\n         wasd\nPause: ESC\n \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 852f9bc24c647cb4ba773cfca688c214, type: 2}
   m_sharedMaterial: {fileID: -7015828240336818088, guid: 852f9bc24c647cb4ba773cfca688c214, type: 2}
@@ -1732,7 +1732,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "you start with 5 lives\nYou receive damage when touched by a shape\n\nhow
+  m_text: "you start with 5 lives\n\nYou receive damage when touched by a shape\n\nhow
     long can you survive?\n \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 852f9bc24c647cb4ba773cfca688c214, type: 2}
@@ -2104,8 +2104,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 645, y: -59.355713}
-  m_SizeDelta: {x: 514.3572, y: 244.5325}
+  m_AnchoredPosition: {x: 645, y: -96.58154}
+  m_SizeDelta: {x: 514.3572, y: 318.9842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2007073603
 MonoBehaviour:
