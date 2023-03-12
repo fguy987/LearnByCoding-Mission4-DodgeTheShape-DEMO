@@ -20,6 +20,7 @@ public class CircleEnemy : Enemy
     private IEnumerator DeathTimer()
     {
         yield return new WaitForSeconds(5f);
+        scoreManager.AddScore(pointsWorth);
         Destroy(gameObject);
     }
 

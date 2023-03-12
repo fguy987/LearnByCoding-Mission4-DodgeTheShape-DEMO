@@ -6,17 +6,21 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     private Collider2D coll;
-    protected Player player; 
+    protected Player player;
+    protected ScoreManager scoreManager;
 
     //ENCAPSULATION
     protected Vector2 destination;
     private float horDest = 12f; //is set by a public method after basic checks
     private float vertDest = 7f;
-    protected int damage = 0; //is set by child classes 
+    protected int damage =  1; 
+    protected int pointsWorth =1;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        scoreManager = GameObject.FindGameObjectWithTag("GM").GetComponent<ScoreManager>();
+        
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         coll = GetComponent<Collider2D>();
     }
@@ -61,6 +65,17 @@ public abstract class Enemy : MonoBehaviour
         {
             DamagePlayer();
         }
+        
+        if (collision.CompareTag("ObjDestr"))
+        {
+            IncreaseScore();
+        }
+    }
+
+    private void IncreaseScore()
+    {
+        scoreManager.AddScore(pointsWorth);
+        Destroy(gameObject);
     }
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameMenuUIHandler : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameMenuUIHandler : MonoBehaviour
     private AudioSource pressSound, gameMusic;
     [SerializeField] //set in editor
     private GameObject gameOver_Obj;
+    [SerializeField] //set in editor
+    private GameObject score_Obj;
+    private TMP_Text scoreTMP;
 
     private float gameMusicCurrentMax;
 
@@ -33,7 +37,10 @@ public class GameMenuUIHandler : MonoBehaviour
         retryButton.onClick.AddListener(RestartGame);
         returnButton.onClick.AddListener(ReturnToMenu);
 
-        //
+        //Score
+        scoreTMP= score_Obj.GetComponentInChildren<TMP_Text>();
+
+        //GameOver
         gameOver_Obj.SetActive(false);
     }
 
@@ -43,6 +50,14 @@ public class GameMenuUIHandler : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    //Score Keeping
+    public void UpdateScoreUI(int scoreToDisplay)
+    {
+        scoreTMP.text = $"Shapes Dodged: {scoreToDisplay}";
+
+    }
+
+    //Pause Menu
     private void RestartGame()
     {
         pressSound.Play();
